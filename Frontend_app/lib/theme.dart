@@ -62,7 +62,7 @@ class AppTheme {
 
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.yellow,
-      foregroundColor: Colors.white,
+      foregroundColor: Colors.black,
     ),
 
     textTheme: TextTheme(

@@ -27,13 +27,45 @@ class _Homepage extends State<Homepage> {
     {'title':'skinny\njeans', 'color' : Colors.greenAccent}
   ];
 
-  final List<Map<String, dynamic>> trendingitem = [
-    {'title': 'Formal\nShirts', 'color': Colors.orange},
-    {'title':'baggy\njeans', 'color' : Colors.blue},
-    {'title': 'Party\nShirts', 'color': Colors.purple},
-    {'title':'jogger\njeans', 'color' : Colors.grey},
+  // final List<Map<String, dynamic>> trendingitem = [
+  //   {'title': 'Formal\nShirts', 'color': Colors.orange},
+  //   {'title':'baggy\njeans', 'color' : Colors.blue},
+  //   {'title': 'Party\nShirts', 'color': Colors.purple},
+  //   {'title':'jogger\njeans', 'color' : Colors.grey},
+  //
+  // ];
 
+  final List<Map<String, dynamic>> trendingProducts = [
+    {
+      "image": "assets/baggy.jpeg",
+      "brand": "Vastra®",
+      "title": "Men's Checked baggy jeans",
+      "rating": 4.4,
+      "price": 1699,
+      "oldPrice": 3499,
+      "off": "51% OFF"
+    },
+    {
+      "image": "assets/shirt1.jpeg",
+      "brand": "Vastra®",
+      "title": "Men's Casual Shirt",
+      "rating": 4.2,
+      "price": 1499,
+      "oldPrice": 2999,
+      "off": "50% OFF"
+    },
+    {
+      'image':'assets/cargo.jpeg',
+      'brand':'Vastra®',
+      'title':"Mens's cargo jeans",
+      'rating':4.3,
+      'price':749,
+      'oldprice':1299,
+      'off':'70% OFF'
+
+    }
   ];
+
 
   @override
   void initState() {
@@ -209,6 +241,127 @@ class _Homepage extends State<Homepage> {
 
   }
 
+  // ---------------for product card ----------------------
+
+  Widget _productCard(Map<String, dynamic> item) {
+    return Container(
+      width: 180,
+      margin: const EdgeInsets.only(right: 12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 6,
+          )
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius: const BorderRadius.vertical(top: Radius.circular(14)),
+                child: Image.asset(
+                  item['image'],
+                  height: 170,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ),
+
+              Positioned(
+                top: 8,
+                left: 8,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: const Text(
+                    "OVERSIZED FIT",
+                    style: TextStyle(color: Colors.white, fontSize: 10),
+                  ),
+                ),
+              ),
+
+              Positioned(
+                top: 8,
+                right: 8,
+                child: Icon(Icons.favorite_border, color: Colors.white),
+              )
+            ],
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+
+                Row(
+                  children: [
+                    const Icon(Icons.star, size: 14, color: Colors.green),
+                    const SizedBox(width: 4),
+                    Text(item['rating'].toString(),style: TextStyle(color: Colors.green),),
+                  ],
+                ),
+
+                const SizedBox(height: 4),
+
+                Text(
+                  item['brand'],
+                  style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
+                ),
+
+                Text(
+                  item['title'],
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontSize: 13,color: Colors.black),
+                ),
+
+                const SizedBox(height: 6),
+                Row(
+                  children: [
+                    Text(
+                      "₹${item['price']}",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      "₹${item['oldPrice']}",
+                      style: const TextStyle(
+                        decoration: TextDecoration.lineThrough,
+                        color: Colors.grey,
+                        fontSize: 12,
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      item['off'],
+                      style: const TextStyle(
+                        color: Colors.green,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+
   Widget _buildTrending() {
     return Column(
      crossAxisAlignment: CrossAxisAlignment.start,
@@ -226,38 +379,17 @@ class _Homepage extends State<Homepage> {
        ),
      const SizedBox(height: 1,),
        SizedBox(
-         height: 180,
-         child: Container(
+         height: 320,
+         child: ListView.builder(
+           scrollDirection: Axis.horizontal,
            padding: const EdgeInsets.only(left: 16),
-
-           child: ListView.builder(
-
-             scrollDirection: Axis.horizontal,
-
-               itemCount: trendingitem.length,
-               itemBuilder: (context, index){
-               final item = trendingitem[index];
-               return Container(
-                 width: 180,
-                 margin: const EdgeInsets.only(right: 12),
-                 padding: const EdgeInsets.all(12),
-                 decoration: BoxDecoration(
-                     color: item['color']
-                 ),
-
-                 child: Align(
-                   alignment: Alignment.bottomLeft,
-                   child: Text(
-                     item['title'],
-                   ),
-                 ),
-               );
-
-           }),
+           itemCount: trendingProducts.length,
+           itemBuilder: (context, index) {
+             return _productCard(trendingProducts[index]);
+             },
          ),
-    )
-       
-     ], 
+       )
+     ],
     );
   }
 
@@ -319,7 +451,7 @@ class _Homepage extends State<Homepage> {
     return DrawerHeader(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.black, Colors.grey],
+          colors: [Colors.amber, Colors.lime],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),

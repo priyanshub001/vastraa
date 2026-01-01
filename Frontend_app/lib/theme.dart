@@ -4,12 +4,12 @@ class AppTheme {
   static ThemeData light = ThemeData(
     brightness: Brightness.light,
     scaffoldBackgroundColor: Colors.white,
-    primaryColor: Colors.yellow,
+    primaryColor: Colors.amber,
 
 
 
     appBarTheme: AppBarTheme(
-      backgroundColor: Colors.yellow,
+      backgroundColor: Colors.amber,
       foregroundColor: Colors.white,
       elevation: 4,
     ),

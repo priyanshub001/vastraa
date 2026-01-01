@@ -14,6 +14,26 @@ class _Homepage extends State<Homepage> {
     "assets/banner2.jpeg",
     "assets/banner3.jpeg",
   ];
+  final List<Map<String, dynamic>> casualDummy = [
+    {'title': 'Formal\nShirts', 'color': Colors.orange},
+    {'title': 'Casual\nWear', 'color': Colors.green},
+    {'title': 'Party\nShirts', 'color': Colors.purple},
+    {'title': 'Summer\nCollection', 'color': Colors.blue},
+  ];
+
+  final List <Map<String, dynamic>> pantdummy = [
+    {'title':'baggy\njeans', 'color' : Colors.blue},
+    {'title':'jogger\njeans', 'color' : Colors.grey},
+    {'title':'skinny\njeans', 'color' : Colors.greenAccent}
+  ];
+
+  final List<Map<String, dynamic>> trendingitem = [
+    {'title': 'Formal\nShirts', 'color': Colors.orange},
+    {'title':'baggy\njeans', 'color' : Colors.blue},
+    {'title': 'Party\nShirts', 'color': Colors.purple},
+    {'title':'jogger\njeans', 'color' : Colors.grey},
+
+  ];
 
   @override
   void initState() {
@@ -81,19 +101,164 @@ class _Homepage extends State<Homepage> {
   }
 
 
-  _buildCausalShirt() {
-    return const Text("Casual Shirts");
+  Widget _buildCausalShirt() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Casual Shirts",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const Text("Explore all"),
+              ),
+            ],
+          ),
+        ),
+
+        const SizedBox(height: 2),
+
+        SizedBox(
+          height: 150,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 16),
+            itemCount: casualDummy.length,
+            itemBuilder: (context, index) {
+              final item = casualDummy[index];
+
+              return Container(
+                width: 140,
+                margin: const EdgeInsets.only(right: 12),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: item['color'],
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    item['title'],
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+
+  Widget _buildPants() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Pants",style: Theme.of(context).textTheme.titleMedium,),
+            TextButton(onPressed: (){}, child: Text("Explore all")),
+          ],
+        ),
+      ),
+      const SizedBox(height: 1,),
+      SizedBox(
+        height: 250,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.only(left: 16),
+          itemCount: pantdummy.length,
+          itemBuilder: (context,index){
+            final item = pantdummy[index];
+            return Container(
+              width: 180,
+              margin: const EdgeInsets.only(right: 12),
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: item['color']
+              ),
+
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  item['title'],
+                ),
+              ),
+            );
+          }
+
+        ),
+      )
+
+    ],
+  );
 
   }
 
-  _buildPants() {
-    return const Text("Pants");
+  Widget _buildTrending() {
+    return Column(
+     crossAxisAlignment: CrossAxisAlignment.start,
+     children: [
+       Padding(
+         padding: const EdgeInsets.symmetric(horizontal: 16),
+         child: Row(
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: [
+             Text("Trending",style: Theme.of(context).textTheme.titleMedium,),
+             TextButton(onPressed: (){}, child: Text("Explore all"))
 
-  }
+           ],
+         ),
+       ),
+     const SizedBox(height: 1,),
+       SizedBox(
+         height: 180,
+         child: Container(
+           padding: const EdgeInsets.only(left: 16),
 
-  _buildTrending() {
-    return const Text("Trending");
+           child: ListView.builder(
 
+             scrollDirection: Axis.horizontal,
+
+               itemCount: trendingitem.length,
+               itemBuilder: (context, index){
+               final item = trendingitem[index];
+               return Container(
+                 width: 180,
+                 margin: const EdgeInsets.only(right: 12),
+                 padding: const EdgeInsets.all(12),
+                 decoration: BoxDecoration(
+                     color: item['color']
+                 ),
+
+                 child: Align(
+                   alignment: Alignment.bottomLeft,
+                   child: Text(
+                     item['title'],
+                   ),
+                 ),
+               );
+
+           }),
+         ),
+    )
+       
+     ], 
+    );
   }
 
 

@@ -5,6 +5,40 @@ class Homepage extends StatefulWidget {
 }
 
 class _Homepage extends State<Homepage> {
+
+  final PageController _bannerController = PageController();
+  int _currentBanner = 0;
+
+  final List<String> bannerImages = [
+    "assets/banner1.jpeg",
+    "assets/banner2.jpeg",
+    "assets/banner3.jpeg",
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(const Duration(seconds: 2), autoSlide);
+  }
+
+  void autoSlide() {
+    if (_currentBanner < bannerImages.length - 1) {
+      _currentBanner++;
+    } else {
+      _currentBanner = 0;
+    }
+
+    _bannerController.animateToPage(
+      _currentBanner,
+      duration: const Duration(milliseconds: 600),
+      curve: Curves.easeInOut,
+    );
+
+    Future.delayed(const Duration(seconds: 3), autoSlide);
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,10 +96,31 @@ class _Homepage extends State<Homepage> {
 
   }
 
-  _buildBanner() {
-    return const Text("Banner");
 
+  Widget _buildBanner() {
+    return AspectRatio(
+      aspectRatio: 16 / 9,
+      child: PageView.builder(
+        controller: _bannerController,
+        itemCount: bannerImages.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                bannerImages[index],
+                fit: BoxFit.cover,
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
+
+
+
 
   Widget _buildDrawer() {
     return Drawer(

@@ -14,6 +14,9 @@ class AppTheme {
       elevation: 4,
     ),
 
+    cardColor: Colors.white,
+
+
     textTheme: TextTheme(
       // for big heading or banner...
       displayLarge: TextStyle(
@@ -29,10 +32,11 @@ class AppTheme {
         color: Colors.black,
       ),
 
+
       //section heading..
       titleMedium: TextStyle(
         fontSize: 16,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.bold,
         color: Colors.black87,
       ),
 
@@ -57,18 +61,43 @@ class AppTheme {
 
   static ThemeData dark = ThemeData(
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: Colors.black87,
-    primaryColor: Colors.yellow,
+    scaffoldBackgroundColor: const Color(0xFF121212),
 
-    appBarTheme: AppBarTheme(
-      backgroundColor: Colors.yellow,
-      foregroundColor: Colors.black,
+    primaryColor: const Color(0xFFFFC107),
+
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Color(0xFFFFC107),
+      foregroundColor: Colors.white,
+      elevation: 0,
     ),
 
-    textTheme: TextTheme(
-      // Default text ...
+    cardColor: const Color(0xFF1E1E1E),
+
+    textTheme: const TextTheme(
+      displayLarge: TextStyle(
+        fontSize: 32,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+      ),
+
+      titleLarge: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        color: Colors.white,
+      ),
+
+      titleMedium: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: Colors.white,
+      ),
+
+      bodyLarge: TextStyle(fontSize: 16, color: Colors.white70),
       bodyMedium: TextStyle(fontSize: 14, color: Colors.white),
+      bodySmall: TextStyle(fontSize: 12, color: Colors.white60),
     ),
+
+
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(

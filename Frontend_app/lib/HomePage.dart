@@ -10,30 +10,94 @@ class _Homepage extends State<Homepage> {
   int _currentBanner = 0;
 
   final List<String> bannerImages = [
-    "assets/banner1.jpeg",
-    "assets/banner2.jpeg",
-    "assets/banner3.jpeg",
+    "assets/shirt1.jpeg",
+    "assets/shirt2.jpeg",
+    "assets/shirt4.jpeg",
   ];
-  final List<Map<String, dynamic>> casualDummy = [
-    {'title': 'Formal\nShirts', 'color': Colors.orange},
-    {'title': 'Casual\nWear', 'color': Colors.green},
-    {'title': 'Party\nShirts', 'color': Colors.purple},
-    {'title': 'Summer\nCollection', 'color': Colors.blue},
+  final List<Map<String, dynamic>> shirts = [
+
+    {
+      'title': 'Formal shirts',
+      'image': "assets/formal.jpeg",
+      'brand':"Vastra®",
+      'rating': 4.5,
+      'price':599,
+      'oldPrice':999,
+      "off": "45% OFF",
+      "tag":"Oversized fit"
+    },
+    {
+      'title': 'Casual shirts',
+      'image': "assets/casual.jpeg",
+      'brand':"Vastra®",
+      'rating': 4.5,
+      'price':699,
+      'oldPrice':999,
+      "off": "45% OFF",
+      "tag":"Oversized fit"
+
+    },
+    {
+      'title': 'Party shirts',
+      'image': "assets/party.jpeg",
+      'brand':"Vastra®",
+      'rating': 4.5,
+      'price':799,
+      'oldPrice':999,
+      "off": "45% OFF",
+      "tag":"Oversized fit"
+
+    },
+    {
+      'title': 'Summer shirts',
+      'image': "assets/summer.jpeg",
+      'brand':"Vastra®",
+      'rating': 4.5,
+      'price':499,
+      'oldPrice':999,
+      "off": "45% OFF",
+      "tag":"Oversized fit"
+
+    },
   ];
 
-  final List <Map<String, dynamic>> pantdummy = [
-    {'title':'baggy\njeans', 'color' : Colors.blue},
-    {'title':'jogger\njeans', 'color' : Colors.grey},
-    {'title':'skinny\njeans', 'color' : Colors.greenAccent}
+  final List <Map<String, dynamic>> pants = [
+
+    {
+      'title': 'Baggy jeans',
+      'image': "assets/baggy.jpeg",
+      'brand':"Vastra®",
+      'rating': 4.5,
+      'price':699,
+      'oldPrice':999,
+      "off": "45% OFF",
+      "tag":"Baggy fit"
+
+    },
+    {
+      'title': 'Jogger ',
+      'image': "assets/jogger.jpeg",
+      'brand':"Vastra®",
+      'rating': 4.5,
+      'price':799,
+      'oldPrice':999,
+      "off": "45% OFF",
+      "tag":"Jogger fit"
+
+    },
+    {
+      'title': 'Skinny',
+      'image': "assets/skinny.jpeg",
+      'brand':"Vastra®",
+      'rating': 4.5,
+      'price':499,
+      'oldPrice':999,
+      "off": "45% OFF",
+      "tag":"Skinny fit"
+
+    },
   ];
 
-  // final List<Map<String, dynamic>> trendingitem = [
-  //   {'title': 'Formal\nShirts', 'color': Colors.orange},
-  //   {'title':'baggy\njeans', 'color' : Colors.blue},
-  //   {'title': 'Party\nShirts', 'color': Colors.purple},
-  //   {'title':'jogger\njeans', 'color' : Colors.grey},
-  //
-  // ];
 
   final List<Map<String, dynamic>> trendingProducts = [
     {
@@ -43,8 +107,10 @@ class _Homepage extends State<Homepage> {
       "rating": 4.4,
       "price": 1699,
       "oldPrice": 3499,
-      "off": "51% OFF"
-    },
+      "off": "51% OFF",
+      "tag":"baggy fit"
+
+},
     {
       "image": "assets/shirt1.jpeg",
       "brand": "Vastra®",
@@ -52,7 +118,9 @@ class _Homepage extends State<Homepage> {
       "rating": 4.2,
       "price": 1499,
       "oldPrice": 2999,
-      "off": "50% OFF"
+      "off": "50% OFF",
+      "tag":"Oversized fit"
+
     },
     {
       'image':'assets/cargo.jpeg',
@@ -61,7 +129,9 @@ class _Homepage extends State<Homepage> {
       'rating':4.3,
       'price':749,
       'oldprice':1299,
-      'off':'70% OFF'
+      'off':'70% OFF',
+      "tag":"Oversized fit"
+
 
     }
   ];
@@ -100,7 +170,7 @@ class _Homepage extends State<Homepage> {
               IconButton(onPressed: () {
                 Scaffold.of(context).openDrawer();
 
-              }, icon: Icon(Icons.menu_open)),
+              }, icon: Icon(Icons.menu_rounded)),
         ),
 
         actions: [
@@ -113,6 +183,7 @@ class _Homepage extends State<Homepage> {
 
         child: Column(
           children: [
+            const SizedBox(height: 10,),
             _buildBanner(),
             const SizedBox(height: 25,),
             _buildCausalShirt(),
@@ -138,7 +209,7 @@ class _Homepage extends State<Homepage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -157,37 +228,16 @@ class _Homepage extends State<Homepage> {
         const SizedBox(height: 2),
 
         SizedBox(
-          height: 150,
+          height: 300,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 16),
-            itemCount: casualDummy.length,
+            itemCount: shirts.length,
             itemBuilder: (context, index) {
-              final item = casualDummy[index];
-
-              return Container(
-                width: 140,
-                margin: const EdgeInsets.only(right: 12),
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: item['color'],
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    item['title'],
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              );
+              return _productCard(shirts[index]);
             },
           ),
-        ),
+        )
       ],
     );
   }
@@ -198,7 +248,7 @@ class _Homepage extends State<Homepage> {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: 24),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -209,30 +259,14 @@ class _Homepage extends State<Homepage> {
       ),
       const SizedBox(height: 1,),
       SizedBox(
-        height: 250,
+        height: 300,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           padding: const EdgeInsets.only(left: 16),
-          itemCount: pantdummy.length,
-          itemBuilder: (context,index){
-            final item = pantdummy[index];
-            return Container(
-              width: 180,
-              margin: const EdgeInsets.only(right: 12),
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: item['color']
-              ),
-
-              child: Align(
-                alignment: Alignment.bottomLeft,
-                child: Text(
-                  item['title'],
-                ),
-              ),
-            );
-          }
-
+          itemCount: pants.length,
+          itemBuilder: (context, index) {
+            return _productCard(pants[index]);
+          },
         ),
       )
 
@@ -241,133 +275,13 @@ class _Homepage extends State<Homepage> {
 
   }
 
-  // ---------------for product card ----------------------
-
-  Widget _productCard(Map<String, dynamic> item) {
-    return Container(
-      width: 180,
-      margin: const EdgeInsets.only(right: 12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 6,
-          )
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.vertical(top: Radius.circular(14)),
-                child: Image.asset(
-                  item['image'],
-                  height: 170,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-              ),
-
-              Positioned(
-                top: 8,
-                left: 8,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: const Text(
-                    "OVERSIZED FIT",
-                    style: TextStyle(color: Colors.white, fontSize: 10),
-                  ),
-                ),
-              ),
-
-              Positioned(
-                top: 8,
-                right: 8,
-                child: Icon(Icons.favorite_border, color: Colors.white),
-              )
-            ],
-          ),
-
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-
-                Row(
-                  children: [
-                    const Icon(Icons.star, size: 14, color: Colors.green),
-                    const SizedBox(width: 4),
-                    Text(item['rating'].toString(),style: TextStyle(color: Colors.green),),
-                  ],
-                ),
-
-                const SizedBox(height: 4),
-
-                Text(
-                  item['brand'],
-                  style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
-                ),
-
-                Text(
-                  item['title'],
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontSize: 13,color: Colors.black),
-                ),
-
-                const SizedBox(height: 6),
-                Row(
-                  children: [
-                    Text(
-                      "₹${item['price']}",
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black
-                      ),
-                    ),
-                    const SizedBox(width: 6),
-                    Text(
-                      "₹${item['oldPrice']}",
-                      style: const TextStyle(
-                        decoration: TextDecoration.lineThrough,
-                        color: Colors.grey,
-                        fontSize: 12,
-                      ),
-                    ),
-                    const SizedBox(width: 6),
-                    Text(
-                      item['off'],
-                      style: const TextStyle(
-                        color: Colors.green,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
 
   Widget _buildTrending() {
     return Column(
      crossAxisAlignment: CrossAxisAlignment.start,
      children: [
        Padding(
-         padding: const EdgeInsets.symmetric(horizontal: 16),
+         padding: const EdgeInsets.symmetric(horizontal: 24),
          child: Row(
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
            children: [
@@ -395,8 +309,8 @@ class _Homepage extends State<Homepage> {
 
 
   Widget _buildBanner() {
-    return AspectRatio(
-      aspectRatio: 16 / 9,
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.50,
       child: PageView.builder(
         controller: _bannerController,
         itemCount: bannerImages.length,
@@ -404,7 +318,7 @@ class _Homepage extends State<Homepage> {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(10),
               child: Image.asset(
                 bannerImages[index],
                 fit: BoxFit.cover,
@@ -415,6 +329,7 @@ class _Homepage extends State<Homepage> {
       ),
     );
   }
+
 
 
 
@@ -529,6 +444,128 @@ class _Homepage extends State<Homepage> {
         style: TextStyle(color: Colors.red),
       ),
       onTap: () {},
+    );
+  }
+
+  // ---------------for product card ----------------------
+
+  Widget _productCard(Map<String, dynamic> item) {
+    final theme = Theme.of(context);
+
+    return Container(
+      width: 180,
+      margin: const EdgeInsets.only(right: 12),
+      decoration: BoxDecoration(
+        color: theme.cardColor,
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 6,
+          )
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius: const BorderRadius.vertical(top: Radius.circular(14)),
+                child: Image.asset(
+                  item['image'],
+                  height: 170,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ),
+
+              Positioned(
+                top: 8,
+                left: 8,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: Text(
+                    item['tag'].toString().toUpperCase(),
+                    style: TextStyle(color: Colors.white, fontSize: 10),
+                  ),
+                ),
+              ),
+
+              Positioned(
+                top: 8,
+                right: 8,
+                child: Icon(Icons.favorite_border, color: Colors.white),
+              )
+            ],
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+
+                Row(
+                  children: [
+                    const Icon(Icons.star, size: 14, color: Colors.green),
+                    const SizedBox(width: 4),
+                    Text(item['rating'].toString(),style: TextStyle(color: Colors.green),),
+                  ],
+                ),
+
+                const SizedBox(height: 4),
+
+                Text(
+                  item['brand'],
+                  style: const TextStyle(fontWeight: FontWeight.normal,),
+                ),
+
+                Text(
+                  item['title'],
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontSize: 13,),
+                ),
+
+                const SizedBox(height: 6),
+                Row(
+                  children: [
+                    Text(
+                      "₹${item['price']}",
+                      style: const TextStyle(
+                          // fontWeight: FontWeight.bold,
+
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      "₹${item['oldPrice']}",
+                      style: const TextStyle(
+                        decoration: TextDecoration.lineThrough,
+                        color: Colors.grey,
+                        fontSize: 12,
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      item['off'],
+                      style: const TextStyle(
+                        color: Colors.green,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 

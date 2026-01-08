@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vastra/SearchPage.dart';
 
 class Homepage extends StatefulWidget {
   State<Homepage> createState() => _Homepage();
@@ -174,7 +175,13 @@ class _Homepage extends State<Homepage> {
         ),
 
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => SearchPage()),
+            );
+
+          }, icon: Icon(Icons.search)),
           IconButton(onPressed: () {}, icon: Icon(Icons.add_card_rounded)),
         ],
       ),

@@ -10,14 +10,16 @@ db=None
 
 def conn():
     global db
-    try :
-        client=MongoClient(Mongo_uri)
-        db=client['Vastraa']
+    
+    client=MongoClient(Mongo_uri)
+    db=client['Vastraa']
+    if db is not None:
         print("db connected successully")
-        return db
-    except Exception as e:
-        print("db connection failed ",str(e))
-        return None
+    else:
+        print("Db Connection Failed")
+        
+        
+    
     
     
 

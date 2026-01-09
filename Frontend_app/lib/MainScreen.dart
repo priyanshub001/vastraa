@@ -1,72 +1,77 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vastra/CategoryPage.dart';
 import 'package:vastra/HomePage.dart';
 import 'package:vastra/ProfilePage.dart';
-import 'package:vastra/theme.dart';
 
-class MainScreen extends StatefulWidget{
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
 
-  State<MainScreen> createState() => _MainScreen();
+  @override
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreen extends State<MainScreen>{
+class _MainScreenState extends State<MainScreen> {
+  int currentIndex = 0;
 
-  int currentindex=0;
+  final pages =  [
+    Homepage(),
+    Categorypage(),
+    Profilepage(),
+  ];
 
-List<Widget>pages = [
-
-  Homepage(),
-  Categorypage(),
-  Profilepage(),
-
-
-];
-
-@override
+  @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
 
-  return Scaffold(
-    body: pages[currentindex],
+    return Scaffold(
+      body: pages[currentIndex],
 
-    bottomNavigationBar: BottomNavigationBar(
-      currentIndex: currentindex,
-        selectedItemColor:Colors.lime,
-        onTap: (index){
-        setState(() {
-          currentindex=index;
-
-        });
-
-        },
-        type: BottomNavigationBarType.fixed,
-
-      items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home),
-          label: "Home"
-
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: theme.cardColor,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(24),
+            topRight: Radius.circular(24),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.12),
+              blurRadius: 12,
+              offset: const Offset(0, -4),
+            ),
+          ],
         ),
+        child: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (index) {
+            setState(() => currentIndex = index);
+          },
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: theme.primaryColor,
+          unselectedItemColor: Colors.grey,
+          showUnselectedLabels: true,
 
-        BottomNavigationBarItem(icon: Icon(Icons.category),
-        label: "Categories"
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_outlined),
+              activeIcon: Icon(Icons.home),
+              label: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.grid_view),
+              activeIcon: Icon(Icons.dashboard),
+              label: "Categories",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline),
+              activeIcon: Icon(Icons.person),
+              label: "Profile",
+            ),
+          ],
         ),
-
-        BottomNavigationBarItem(icon: Icon(Icons.person),
-        label: "Profile"
-        )
-
-
-
-      ],
-
-
-
-    ),
-
-  );
-
-
-
+      ),
+    );
   }
-
 }

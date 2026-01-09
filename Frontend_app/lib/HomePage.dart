@@ -166,25 +166,47 @@ class _Homepage extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Builder(
-          builder: (context) =>
-              IconButton(onPressed: () {
-                Scaffold.of(context).openDrawer();
+        elevation: 0,
+        centerTitle: true,
 
-              }, icon: Icon(Icons.menu_rounded)),
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.menu_rounded),
+            tooltip: "Menu",
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
+
+        title: const Text(
+          "Vastra",
+          style: TextStyle(
+            fontWeight: FontWeight.w700,
+          ),
         ),
 
         actions: [
-          IconButton(onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => SearchPage()),
-            );
+          IconButton(
+            tooltip: "Search",
+            icon: const Icon(Icons.search_rounded),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const SearchPage()),
+              );
+            },
+          ),
 
-          }, icon: Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.add_card_rounded)),
+          IconButton(
+            tooltip: "Cart",
+            icon: const Icon(Icons.shopping_bag_outlined),
+            onPressed: () {
+            },
+          ),
+
+          const SizedBox(width: 8),
         ],
       ),
+
 
       body: SingleChildScrollView(
 

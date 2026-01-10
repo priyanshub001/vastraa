@@ -101,7 +101,6 @@ class _SearchPageState extends State<SearchPage> {
               "Popular Categories",
               style: theme.textTheme.titleMedium,
             ),
-
             const SizedBox(height: 16),
 
             Expanded(

@@ -118,7 +118,6 @@ class _CategoryBodyState extends State<CategoryBody> {
             },
           ),
         ),
-
         Expanded(
           child: GridView.builder(
             padding: const EdgeInsets.all(16),

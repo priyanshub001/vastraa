@@ -16,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
   final pages =  [
     Homepage(),
     Categorypage(),
-    Profilepage(),
+    ProfilePage(),
   ];
 
   @override

@@ -254,7 +254,6 @@ class _Homepage extends State<Homepage> {
           ),
         ),
         const SizedBox(height: 2),
-
         SizedBox(
           height: 300,
           child: ListView.builder(

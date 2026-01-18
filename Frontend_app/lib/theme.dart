@@ -71,6 +71,7 @@ class AppTheme {
       elevation: 0,
     ),
 
+
     cardColor: const Color(0xFF1E1E1E),
 
     textTheme: const TextTheme(
@@ -79,7 +80,6 @@ class AppTheme {
         fontWeight: FontWeight.bold,
         color: Colors.white,
       ),
-
       titleLarge: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w600,

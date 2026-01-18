@@ -254,6 +254,7 @@ class _Homepage extends State<Homepage> {
           ),
         ),
 
+
         const SizedBox(height: 2),
         SizedBox(
           height: 300,
@@ -269,6 +270,7 @@ class _Homepage extends State<Homepage> {
       ],
     );
   }
+
 
 
   Widget _buildPants() {

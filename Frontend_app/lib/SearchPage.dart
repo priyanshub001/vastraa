@@ -7,6 +7,7 @@ class SearchPage extends StatefulWidget {
   State<SearchPage> createState() => _SearchPageState();
 }
 
+
 class _SearchPageState extends State<SearchPage> {
   final TextEditingController _searchController = TextEditingController();
 

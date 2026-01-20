@@ -53,8 +53,6 @@ class _MainScreenState extends State<MainScreen> {
           selectedItemColor: theme.primaryColor,
           unselectedItemColor: Colors.grey,
           showUnselectedLabels: true,
-
-
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home_outlined),

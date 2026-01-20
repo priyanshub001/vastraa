@@ -7,6 +7,7 @@ class ProfilePage extends StatefulWidget {
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
+
 class _ProfilePageState extends State<ProfilePage> {
 
   final String name = "Users";

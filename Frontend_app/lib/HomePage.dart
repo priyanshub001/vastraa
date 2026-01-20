@@ -159,7 +159,6 @@ class _Homepage extends State<Homepage> {
     Future.delayed(const Duration(seconds: 3), autoSlide);
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

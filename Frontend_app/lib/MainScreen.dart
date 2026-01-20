@@ -6,7 +6,6 @@ import 'package:vastra/ProfilePage.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
-
   @override
   State<MainScreen> createState() => _MainScreenState();
 }

@@ -130,7 +130,6 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
-
 class _StatItem extends StatelessWidget {
   final String title;
   final String value;

@@ -3,7 +3,6 @@ import 'package:vastra/CategoryPage.dart';
 import 'package:vastra/HomePage.dart';
 import 'package:vastra/ProfilePage.dart';
 
-
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
   @override
@@ -17,8 +16,6 @@ class _MainScreenState extends State<MainScreen> {
     Categorypage(),
     ProfilePage(),
   ];
-
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);

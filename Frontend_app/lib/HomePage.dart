@@ -16,7 +16,6 @@ class _Homepage extends State<Homepage> {
     "assets/shirt4.jpeg",
   ];
   final List<Map<String, dynamic>> shirts = [
-
     {
       'title': 'Formal shirts',
       'image': "assets/formal.jpeg",

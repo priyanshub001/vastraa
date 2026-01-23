@@ -8,7 +8,6 @@ class SearchPage extends StatefulWidget {
 }
 class _SearchPageState extends State<SearchPage> {
   final TextEditingController _searchController = TextEditingController();
-
   List<String> recentSearches = [
     "Saree",
     "Kurti",

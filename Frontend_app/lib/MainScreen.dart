@@ -10,7 +10,6 @@ class MainScreen extends StatefulWidget {
 }
 class _MainScreenState extends State<MainScreen> {
   int currentIndex = 0;
-
   final pages =  [
     Homepage(),
     Categorypage(),

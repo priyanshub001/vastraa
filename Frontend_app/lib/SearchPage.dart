@@ -23,7 +23,6 @@ class _SearchPageState extends State<SearchPage> {
       appBar: AppBar(
         title: const Text("Search"),
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

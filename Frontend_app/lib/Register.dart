@@ -37,7 +37,6 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
 
               const SizedBox(height: 30),
-
               Text(
                 "Create Account",
                 style: theme.textTheme.displaySmall?.copyWith(

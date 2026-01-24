@@ -60,7 +60,6 @@ class _Homepage extends State<Homepage> {
 
     },
   ];
-
   final List <Map<String, dynamic>> pants = [
 
     {

@@ -21,7 +21,6 @@ class _MainScreenState extends State<MainScreen> {
 
     return Scaffold(
       body: pages[currentIndex],
-
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: theme.cardColor,

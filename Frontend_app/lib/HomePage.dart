@@ -226,7 +226,6 @@ class _Homepage extends State<Homepage> {
     );
   }
 
-
   Widget _buildCausalShirt() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

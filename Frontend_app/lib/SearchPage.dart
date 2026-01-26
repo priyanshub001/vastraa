@@ -27,7 +27,6 @@ class _SearchPageState extends State<SearchPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             Container(
               decoration: BoxDecoration(
                 color: theme.cardColor,

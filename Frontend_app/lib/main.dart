@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vastra/MainScreen.dart';
 import 'package:vastra/Register.dart';
+import 'package:vastra/loginPage.dart';
 import 'package:vastra/theme.dart';
 
 void main() {
@@ -17,6 +18,11 @@ class MyApp extends StatelessWidget {
       theme:AppTheme.light,
       darkTheme:AppTheme.dark,
       home: RegisterPage(),
+
+      routes: {
+        "/login": (context) => LoginPage(),
+        "/register": (context) => RegisterPage(),
+      },
 
     );
   }

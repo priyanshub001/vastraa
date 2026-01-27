@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
-
-  final TextEditingController nameController = TextEditingController();
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
 
   bool isPasswordHidden = true;
-  bool isConfirmPasswordHidden = true;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +24,6 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               const SizedBox(height: 20),
 
               IconButton(
@@ -37,8 +32,9 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
 
               const SizedBox(height: 30),
+
               Text(
-                "Create Account",
+                "Welcome Back",
                 style: theme.textTheme.displaySmall?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -47,19 +43,11 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(height: 8),
 
               Text(
-                "Sign up to continue shopping",
+                "Login to continue shopping",
                 style: theme.textTheme.bodyMedium,
               ),
 
               const SizedBox(height: 40),
-
-              _inputField(
-                controller: nameController,
-                hint: "Full Name",
-                icon: Icons.person_outline,
-              ),
-
-              const SizedBox(height: 16),
 
               _inputField(
                 controller: emailController,
@@ -82,31 +70,28 @@ class _RegisterPageState extends State<RegisterPage> {
                 },
               ),
 
-              const SizedBox(height: 16),
+              const SizedBox(height: 10),
 
-              _inputField(
-                controller: confirmPasswordController,
-                hint: "Confirm Password",
-                icon: Icons.lock_outline,
-                isPassword: true,
-                obscureText: isConfirmPasswordHidden,
-                toggle: () {
-                  setState(() {
-                    isConfirmPasswordHidden = !isConfirmPasswordHidden;
-                  });
-                },
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {
+                    // forgot password logic later
+                  },
+                  child: const Text("Forgot Password?"),
+                ),
               ),
 
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(double.infinity, 48),
                 ),
                 onPressed: () {
-                  // validation / firebase logic later
+                  // login / firebase logic later
                 },
-                child: const Text("Register"),
+                child: const Text("Login"),
               ),
 
               const SizedBox(height: 20),
@@ -114,10 +99,9 @@ class _RegisterPageState extends State<RegisterPage> {
               Center(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, "/login");
-
+                    Navigator.pushNamed(context, "/register");
                   },
-                  child: const Text("Already have an account? Login"),
+                  child: const Text("Don't have an account? Register"),
                 ),
               ),
 

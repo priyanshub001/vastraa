@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vastra/HomePage.dart';
+import 'package:vastra/MainScreen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -89,7 +91,13 @@ class _LoginPageState extends State<LoginPage> {
                   minimumSize: const Size(double.infinity, 48),
                 ),
                 onPressed: () {
-                  // login / firebase logic later
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => MainScreen()),
+                        (route) => false,
+                  );
+
+
                 },
                 child: const Text("Login"),
               ),

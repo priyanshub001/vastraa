@@ -2,7 +2,7 @@ from flask import request,jsonify,Blueprint
 from dotenv import load_dotenv
 import os
 from application import db
-from application.Auth import Generate_Token
+from application.Auth import Generate_Token,jwt_required
 
 
 load_dotenv()
@@ -57,5 +57,11 @@ def Login():
         return jsonify({"error",str(e)}),500
 
 
+@user_bp.route("/Profile",methods=["GET"])
+@jwt_required
+def Profile():
+    user_id=request.user_id
+    user_data=db.db.Users.find_one({"_id":user_id},{"Password":0})
+    return jsonify({"message":"fetched Successfull","data":user_data})
 
 

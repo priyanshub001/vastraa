@@ -330,7 +330,6 @@ class _Homepage extends State<Homepage> {
     );
   }
 
-
   Widget _buildBanner() {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.50,
@@ -352,8 +351,6 @@ class _Homepage extends State<Homepage> {
       ),
     );
   }
-
-
 
 
 

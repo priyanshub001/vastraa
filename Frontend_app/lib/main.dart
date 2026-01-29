@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
       theme:AppTheme.light,
       darkTheme:AppTheme.dark,
       home: RegisterPage(),
-
       routes: {
         "/login": (context) => LoginPage(),
         "/register": (context) => RegisterPage(),

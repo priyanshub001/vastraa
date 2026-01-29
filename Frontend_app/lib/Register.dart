@@ -56,7 +56,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               _inputField(
                 controller: nameController,
-                hint: "Full Name",
+                hint: "User Name",
                 icon: Icons.person_outline,
               ),
 

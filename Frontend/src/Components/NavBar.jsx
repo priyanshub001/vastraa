@@ -1,6 +1,24 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const NavBar = () => {
+
+  const navigator=useNavigate();
+  const token=localStorage.getItem("Token");
+const Redirect=()=>{
+if (token){
+
+  navigator("/Profile")
+
+}
+else{
+
+  navigator("/Login")
+}
+
+}
+
+
   return (
     <>
     
@@ -21,26 +39,6 @@ const NavBar = () => {
       <ul
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-white rounded-box z-1 mt-3 w-52 p-2 shadow">
-          {/* <li><div className="dropdown dropdown-end">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img
-            alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-        </div>
-      </div>
-      <ul
-        tabIndex="-1"
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li>
-          <a className="justify-between">
-            Profile
-          </a>
-        </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
-      </ul>
-    </div></li> */}
 
     <li><a >Profile</a></li>
         <li><a>Men</a></li>
@@ -98,7 +96,7 @@ const NavBar = () => {
 
 
 
-    <div className="dropdown dropdown-end hidden lg:inline lg:ml-15">
+    <div className="dropdown dropdown-end hidden lg:inline lg:ml-15" onClick={Redirect}>
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           <img
@@ -106,18 +104,6 @@ const NavBar = () => {
             src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
         </div>
       </div>
-      <ul
-        tabIndex="-1"
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li>
-          <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </a>
-        </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
-      </ul>
     </div>
     
 

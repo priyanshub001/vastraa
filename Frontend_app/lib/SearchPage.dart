@@ -116,7 +116,6 @@ class _SearchPageState extends State<SearchPage> {
       ),
     );
   }
-
   Widget _categoryCard(BuildContext context, String title, IconData icon) {
     final theme = Theme.of(context);
 

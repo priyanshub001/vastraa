@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import os
 from application import db
 from application.Auth import Generate_Token,jwt_required
+from bson.objectid import ObjectId
 
 
 load_dotenv()
@@ -61,7 +62,9 @@ def Login():
 @jwt_required
 def Profile():
     user_id=request.user_id
-    user_data=db.db.Users.find_one({"_id":user_id},{"Password":0})
+    user_data=db.db.Users.find_one({"_id":ObjectId(user_id)},{"Password":0})
+    user_data["_id"] = str(user_data["_id"])
+    print(user_data)
     return jsonify({"message":"fetched Successfull","data":user_data})
 
 

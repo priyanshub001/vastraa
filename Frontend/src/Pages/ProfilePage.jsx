@@ -1,8 +1,11 @@
 import React from 'react'
+import UserProfile from '../Components/UserProfile'
 
 const ProfilePage = () => {
   return (
-    <div>ProfilePage</div>
+    <>
+    <UserProfile/>
+    </>
   )
 }
 

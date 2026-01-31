@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import UserProfile from '../Components/UserProfile'
 
+
+
 const ProfilePage = () => {
-  return (
+ 
+return (
     <>
-    <UserProfile/>
+    <div className='bg-white text-black w-full h-screen'>
+      <UserProfile/>
+    </div>
+    
     </>
   )
 }

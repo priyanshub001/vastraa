@@ -4,8 +4,10 @@ import Login from '../Components/login'
 const LoginPage = () => {
   return (
     <>
-    
-    <Login/>
+    <div className='flex justify-center items-center w-full h-screen '>
+       <Login/>
+    </div>
+   
     
     </>
   )

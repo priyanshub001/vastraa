@@ -64,7 +64,6 @@ def Profile():
     user_id=request.user_id
     user_data=db.db.Users.find_one({"_id":ObjectId(user_id)},{"Password":0})
     user_data["_id"] = str(user_data["_id"])
-    print(user_data)
     return jsonify({"message":"fetched Successfull","data":user_data})
 
 

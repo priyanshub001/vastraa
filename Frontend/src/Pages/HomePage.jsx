@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
 
     <>
-    <div className='flex flex-col gap-5 '>
+    <div className='flex flex-col gap-5 bg-white text-black'>
     <div className='fixed w-full z-50'>
        <NavBar/>
     </div>

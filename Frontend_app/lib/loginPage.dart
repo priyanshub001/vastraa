@@ -95,7 +95,6 @@ class _LoginPageState extends State<LoginPage> {
                         (route) => false,
                   );
 
-
                 },
                 child: const Text("Login"),
               ),

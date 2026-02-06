@@ -559,7 +559,6 @@ class _Homepage extends State<Homepage> {
                       "₹${item['price']}",
                       style: const TextStyle(
                           // fontWeight: FontWeight.bold,
-
                       ),
                     ),
                     const SizedBox(width: 6),

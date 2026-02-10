@@ -426,6 +426,7 @@ class _Homepage extends State<Homepage> {
   }
 
 
+
   Widget _buildSectionDivider(String title) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
@@ -589,6 +590,5 @@ class _Homepage extends State<Homepage> {
       ),
     );
   }
-
 
 }

@@ -53,6 +53,7 @@ class _MainScreenState extends State<MainScreen> {
               activeIcon: Icon(Icons.home),
               label: "Home",
             ),
+
             BottomNavigationBarItem(
               icon: Icon(Icons.grid_view),
               activeIcon: Icon(Icons.dashboard),

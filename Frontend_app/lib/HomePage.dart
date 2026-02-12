@@ -130,7 +130,6 @@ class _Homepage extends State<Homepage> {
       'oldprice':1299,
       'off':'70% OFF',
       "tag":"Oversized fit"
-
     }
   ];
 

@@ -130,6 +130,7 @@ class _SearchPageState extends State<SearchPage> {
         ],
       ),
 
+
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

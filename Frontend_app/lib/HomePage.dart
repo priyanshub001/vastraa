@@ -140,6 +140,7 @@ class _Homepage extends State<Homepage> {
     Future.delayed(const Duration(seconds: 2), autoSlide);
   }
 
+
   void autoSlide() {
     if (_currentBanner < bannerImages.length - 1) {
       _currentBanner++;

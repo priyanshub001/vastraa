@@ -16,6 +16,7 @@ class _SearchPageState extends State<SearchPage> {
     "Silk Dupatta"
   ];
 
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
